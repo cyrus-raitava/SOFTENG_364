@@ -1,0 +1,22 @@
+//=======================================================================//
+
+USEFUL NOTES:
+
+//=======================================================================//
+
+
+Print command: pprint(stuff to print to console here)
+
+Python dictionary = Java HashMap/std::map in C++
+
+We can traverse network graph like so:
+	pprint(netjson['nodes'][`NODE NUMBER`]['properties'][`PROPERTY NAME`])
+
+(Note data is in JSON format (access via attributes, and values for those attributes, and array of those attribute values). Arrays within arrays.
+
+
+We can convert our dict into a more user-friendly network.Graph, to use Python's NetworkX package with.
+
+364 is a lil tricky.
+
+

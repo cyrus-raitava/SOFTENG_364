@@ -1,0 +1,81 @@
+What is JSON?
+
+JSON (JavaScript Object Notation) is a syntax for storing and exchanging data. Any JavaScript Object can have its information converted into the JSON format, and vice versa.
+
+//=======================================================================//
+
+Which primitive types does JSON support? Which data structures?
+
+JSON supports strings, numbers, objects (JSON type), arrays, booleans and null values.
+
+It DOES NOT support the storing/managing of functions/dates/undefined variables.
+
+//=======================================================================//
+
+What types of network-related entities does NetJSON support? Which one is used to encode network graphs?
+
+NetJSON can be used to describe the "network configuration of a device like a router, a wireless point to point device, a server, a raspberry pi or whatever is able to send packets through a computer network."
+
+Network Graphs aim to "describe the topology of a network and it’s comprised of a list of nodes and a list of links between nodes." Allows visualisation/monitoring of links between nodes in a network.
+
+//=======================================================================//
+
+What identifiers are available for nodes?
+
+The nodes in a Network Graph Object must always have an id value (string), but MAY ALSO have the following attributes:
+
+	- label (human-readable label of the node)
+	- local_addresses (array of addresses which can be used to communicate with this node)
+	- properties (these may contain an arbitrary member; if used, SHOULD be visualized by UI software)
+
+
+How are attributes associated with nodes and links?
+
+Attributes are nested within the JSON node/link objects (in keeping with the adopted format of JSON data).
+
+
+//=======================================================================//
+//=======================================================================//
+
+What is the impact on node neighbours?
+
+The number of neighbours either stays the same, or decreases, in going from nx.Graph to nx.DiGraph: take node z for example. With nx.Graph, it has neighbours X and Y, with respective edge costs 9 and 2. Following the graph being translated into a DiGraph, the node has NO neighbours, as both of those previous nodes now have directed edges pointing to it.
+
+e.g 	nx.Graph:	pprint((node, dict(graph[node]))) gives:
+			('z', {'x': {'cost': 9}, 'y': {'cost': 2}})
+Whereas
+	nx.DiGraph:	pprint((node, dict(graph[node]))) gives:
+			('z', {})
+
+
+//=======================================================================//
+
+Are twice as many edges actually stored in Graph?
+
+No: upon running the script both with the .Graph() function, and the .DiGraph() function, the console call: 
+	len(graph.edges)
+yielded the same answer (10).
+Thus, one can assume that the number of edges in between the different computed graphs (or at least the number of edges stored) is the same.
+
+//=======================================================================//
+
+Are link attributes duplicated in Graph?
+
+No, apparently not? In running `pprint((source, target, data))` (the function call for printing the edges and attributes of the graph), the result was the SAME in between both the .Graph() and .DiGraph() calls.
+
+//=======================================================================//
+//=======================================================================//
+
+LEAST-COST PATHS WITH NETWORKX:
+
+Note .spring_layout() positions nodes using the Fruchterman-Reingold force-directed algorithm.
+
+In relation to the Algorithms Python module, I have seen the BFS and DFS algorithms before (cannot remember them), and recognise the tournament methods. These, as well as the sections in Connectivity, Components and Communities, are recognisable.
+
+//=======================================================================//
+
+
+IMPLEMENTATION OF DIJKSTRA'S ALGORITHM:
+
+
+
